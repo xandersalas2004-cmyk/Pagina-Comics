@@ -1,0 +1,301 @@
+body{
+    margin: 0;
+    background-color: #817c7c;
+    display: grid;
+    grid-template-areas: 
+    "header header header"
+    "main main main"
+    "footer footer footer"
+    ;
+}
+
+@mixin pantalla-pequena {
+@media (max-width: 393px) {
+@content;
+  }
+}
+
+@mixin pantalla-pad {
+@media (max-width: 768px) {
+@content;
+  }
+}
+@mixin text-title {
+font-family: "Stalinist One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  color:rgb(101, 31, 180);
+  
+  font-size: 20px;
+  
+}
+
+@mixin text-paragraphs{
+      font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 800;
+  font-style: normal;
+  color: rgb(240, 237, 241);
+font-size:30px;
+  
+}
+header{
+    @include text-title;
+
+    a{
+        font-size: 10px;
+    }
+}
+ .d-flex {
+    .btn{
+        background-color: #8009e0;
+        border: 1px solid #8009e0;
+            .btn-success{
+            background-color: #8009e0;
+        border: 1px solid #8009e0;
+ }
+    }
+ }
+
+ .btn:hover{
+     background-color: #7f09e059;
+        border: 1px solid #8009e0;
+ }
+
+ 
+main{
+    grid-area: main;
+    width: 100%;
+  
+    
+   
+    .container-introduction{
+    
+             display: flex;
+             flex-direction: column;
+            margin:  5rem  ;
+            margin-bottom: 0rem;
+            height: 30.5rem;
+           background-image: url(../img/batmanfondo.png);
+           background-repeat: no-repeat;
+           background-size: cover;
+           padding: 15px;
+           justify-content: space-between;
+
+           /* Configuración del carrusel de fondo */
+        background-position: center;
+   
+    /* Animación: durará 15 segundos y se repetirá infinitamente */
+    animation: carruselFondo 15s infinite ease-in-out;
+
+    
+       .introduction-title{
+        padding: 1.5rem;
+       @include text-title;
+       }
+
+       .introduction-text{
+        @include text-paragraphs;
+
+        @include pantalla-pequena {
+        font-size: 12px;
+        }
+
+        @include pantalla-pad{
+            font-size: 20px;
+        }
+       }
+           
+       }
+
+       .container-cards{
+        margin:  0rem 5rem ;
+        display: flex;
+        background-color: rgb(19, 18, 18);
+        flex-direction: column;
+         justify-content: space-between;
+         gap:20px;
+         padding: 15px;
+        padding-top: 40px;
+
+        .Container-cards-title{
+            @include text-title;
+        }
+
+
+         .container-products{
+            display:flex;
+            gap: 30px;
+            flex-wrap: wrap;
+        justify-content: center;
+        padding-bottom: 30px;
+         }
+       }
+
+       .card{
+        background-color: rgb(101, 31, 180);
+          font-family: "Finlandica Headline", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  color: #fffbfb;
+  cursor: pointer;
+  transition: all .3s ease;
+
+            &:hover{
+                transform: scale(1.06);
+                background-color: rgba(107, 32, 192, 0.5);
+            }
+        
+            
+       }
+
+       .btn{
+        background-color: rgb(10, 10, 10);
+        border: 1px solid rgb(15, 15, 15);
+
+        &:hover{
+            background-color: rgba(22, 22, 22, 0.568);
+             border: 1px solid rgb(15, 15, 15);
+        }
+       }
+
+
+    
+
+      
+}
+
+.container-carrousel{
+     margin:  0rem 5rem ;
+        display: flex;
+        background-color: rgb(19, 18, 18);
+        flex-direction: column;
+         justify-content: space-between;
+         gap:30px;
+         padding: 15px;
+        padding-top: 40px;
+
+        h1{
+            font-family: "Stalinist One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color:rgb(101, 31, 180);
+            text-align: center;
+            font-size:clamp(12px,100vw,50px);
+           
+
+        }
+
+    .carousel {
+  max-width: 600px; /* Cambia este valor al ancho que quieras (ej: 400px, 800px) */
+  width: 100%;       /* Asegura que sea responsivo en pantallas más pequeñas */
+  margin: 0 auto;    /* Centra el carrusel horizontalmente */
+        cursor: pointer;
+        .carousel-btn{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap:10px;
+             .btn-icon{
+                border: 1px solid #0f0f0f;
+                background-color: #8009e0;
+                border-radius: 9999px;
+            width: 100px;
+            height: 50px;
+
+            &:hover{
+                background-color: #7f09e059;
+            }
+        }
+        }
+      
+}
+}
+
+footer{
+    margin-top: 5rem;
+    grid-area: footer;
+    width: 100%;
+    background-color: rgb(24, 23, 23);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+    padding:1rem;
+    
+
+        .container-img{
+           img{
+            width: 50px;
+            height: 50px;
+           }
+        }
+
+        .container-info{
+            font-size: 20px;
+            font-family: "Montserrat", sans-serif;
+            display: flex;
+            font-weight: 400;
+            flex-direction: column;
+           
+            a{
+            text-decoration: none;
+             color: #fff;
+
+             &:hover{
+                color:#8009e0;
+             }
+            }
+        }
+
+        .container-Follow{
+            display: grid;
+            grid-template-rows: repeat(2,50px);
+           
+            h4{
+
+                 font-size: 20px;
+                 font-family: "Montserrat", sans-serif;
+                 color: #fff;
+            }
+
+            .container-icons{
+                display: flex;
+                
+                align-items: center;
+                grid-row: 2/3;
+                justify-content: center;
+                gap: 10px;
+                 svg{
+                color:#fff;
+                    cursor: pointer;
+                    transition: all .3s ease;
+                &:hover{
+                    transform: scale(1.06);
+                    color: #8009e0;
+                }
+            }
+            }
+
+           
+        }
+
+        
+
+}
+
+@keyframes carruselFondo {
+    0% {
+        background-image: url('../img/batmanfondo.png');
+    }
+    33% {
+        background-image: url(../img/invenciblefondo.png); /* Cambia por la ruta de tu segunda imagen */
+    }
+    66% {
+        background-image: url(../img/daredevil.png); /* Cambia por la ruta de tu tercera imagen */
+    }
+    100% {
+        background-image: url(../img/batmanfondo.png);
+    }
+}
